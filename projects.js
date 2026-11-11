@@ -21,6 +21,15 @@ const projectImages = {
   flashcard: "images/flashCard.png"
 };
 
+const githubRepositories = {
+  keydown: "keyDown",
+  fast: "Fast",
+  gameoflife: "game-of-life",
+  tictactui: "TicTacTui",
+  brainfuck: "brainfuck",
+  wordlesolver: "wordleSolver"
+};
+
 function parseProjects(rawText) {
   const lines = rawText.split(/\r?\n/).map((line) => line.trim());
   const todoIndex = lines.findIndex((line) => line.toLowerCase() === "todo:");
@@ -63,7 +72,7 @@ function parseProjects(rawText) {
         image: projectImages[baseSlug] || "",
         githubUrl: githubMatch && githubMatch[1]
           ? githubMatch[1]
-          : `https://github.com/${name.trim().replace(/\s+/g, "-")}`
+          : `https://github.com/thomas00111/${githubRepositories[baseSlug] || name.trim().replace(/\s+/g, "-")}`
       };
     })
     .filter((project) => project.name);

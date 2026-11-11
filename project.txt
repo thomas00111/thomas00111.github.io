@@ -1,0 +1,65 @@
+(open) TicTacTui (rust)
+(open) wordleSolver (python)
+(open) Fast (godot)
+GodotChess (godot)
+shooterChaos (godot)
+(open) brainfuck (python/brainfuck)
+(open) game of life (godot)
+flashcard (python)
+(open) keyDown (godot) (jam)
+password manager (python)
+
+(?) Galaga
+
+(wip) spaceRush
+(wip) flashcard
+(wip) chessBot
+(wip) corfuGuessr
+(wip) drone ai
+(wip) ai laser
+(wip) mdp manager
+
+TODO:
+AI civilisation (https://www.youtube.com/watch?v=jRBUHrusAyk)
+
+sherlock
+rubiks rl
+boids
+2048
+anti cheat
+chessBot
+corfuGuessr (NiceGUI openStreetMap)
+drone ai
+
+
+gamifyProductivity
+archiveWeb
+vocalChess
+passphrase generator
+
+math editor (https://math-demo.abitti.fi/)
+pixel art editor(https://github.com/cloudhead/rx)
+
+wikiMapper
+musicManager (with yt to mp3)
+qrcode (https://github.com/sorairolake/qrtool) https://github.com/florinpop17/app-ideas/blob/master/Projects/2-Intermediate/QRCode-Badge-App.md
+
+ai laser
+
+https://www.aahanabobade.com/
+https://github.com/FGRibreau/spinners
+https://github.com/woboq/qmetaobject-rs
+https://github.com/imgui-rs/imgui-rs
+https://github.com/rise-ui/
+https://github.com/autopilot-rs/autopilot-rs
+
+
+
+https://github.com/tw93/pake
+https://github.com/screenpipe
+https://github.com/storytold/artcraft
+
+https://github.com/cobiwave/simplefolio
+
+https://github.com/pyca/cryptography
+https://github.com/sherlock-project/sherlocks
