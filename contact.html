@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | Thomas Beunaiche Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html">Thomas Beunaiche <span>portfolio</span></a>
+        <nav class="nav-links">
+          <a href="index.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+
+      <main class="center-stage">
+        <script>
+        function copy_to_clipboard( text, id ) {
+            navigator.clipboard.writeText(text);
+            document.getElementById(id).innerHTML = "Copied to clipboard: " + text;
+        };
+
+        </script>
+        <section class="content-panel contact-card">
+          <p class="eyebrow">Contact</p>
+          <!-- <h2>Let’s build something pixel-perfect.</h2>
+          <p>Contact me for commissions, collaborations, or new ideas.</p> -->
+          <a class="button-link" id="mail" onclick="copy_to_clipboard('thomasbeunaiche@orange.fr', 'mail')">thomasbeunaiche@orange.fr</a>
+          <a class="button-link secondary" href="index.html">← voir les projets</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

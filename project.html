@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thomas Beunaiche detail</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html">Thomas Beunaiche <span>Portfolio</span></a>
+        <nav class="nav-links">
+          <a href="index.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+
+      <main class="center-stage">
+        <section class="content-panel" id="project-detail">
+          <p class="eyebrow">Project detail</p>
+          <h1 id="project-title">Loading…</h1>
+          <div id="project-content"></div>
+          <a class="back-link" href="index.html">retour au projets</a>
+        </section>
+      </main>
+    </div>
+
+    <script src="projects.js"></script>
+    <script>
+      async function loadProject() {
+        const projectTitle = document.getElementById("project-title");
+        const projectContent = document.getElementById("project-content");
+        const requestedSlug = new URLSearchParams(window.location.search).get("project") || "";
+
+        try {
+          const projects = await loadProjects();
+          const project = projects.find((entry) => entry.slug === requestedSlug);
+
+          if (!project) {
+            projectTitle.textContent = "Project not found";
+            projectContent.innerHTML = "<p>No project was found for this link.</p>";
+            return;
+          }
+
+          document.title = `${project.name} | Thomas Beunaiche portfolio`;
+          projectTitle.textContent = project.name;
+          projectContent.innerHTML = `
+            ${project.image
+              ? `<img class="detail-image" src="${project.image}" alt="Preview of ${project.name}">`
+              : `<div class="project-detail-preview">${project.name}</div>`}
+            ${project.flags.length ? `<p>Langage: ${project.flags.join(", ")}</p>` : ""}
+            ${project.longDescription ? `<p>${project.longDescription}</p>` : ""}
+            ${project.workInProgress ? "<p class=\"wip-status\">Work in progress.</p>" : ""}
+            ${project.openSource ? `<a class="button-link" href="${project.githubUrl}" target="_blank" rel="noreferrer">Ouvrir sur GitHub</a>` : ""}
+          `;
+        } catch (error) {
+          projectTitle.textContent = "Projects unavailable";
+          projectContent.innerHTML = `<p>${error.message}. Serve this folder with a local web server to load the project list.</p>`;
+        }
+      }
+
+      loadProject();
+    </script>
+  </body>
+</html>

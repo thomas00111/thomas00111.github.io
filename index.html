@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thomas Beunaiche portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html">Thomas Beunaiche <span>Portfolio</span></a>
+        <nav class="nav-links">
+          <a href="index.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+
+      <main class="center-stage">
+        <section class="intro-panel">
+          <p class="eyebrow">Thomas Beunaiche</p>
+          <h1>Mes projets</h1>
+          <p class="lead">
+            jeux video, IA, software
+          </p>
+          <p class="lead">
+            rust, python, godot, lua, java, C, idris II
+          </p>
+        </section>
+
+        <section class="project-list" id="project-list" aria-label="Project showcase"></section>
+      </main>
+    </div>
+
+    <script src="projects.js"></script>
+    <script>
+      const projectList = document.getElementById("project-list");
+
+      function renderProjects(projects) {
+        projectList.innerHTML = "";
+
+        projects.forEach((project, index) => {
+          const card = document.createElement("article");
+          card.className = `project-card ${index % 2 === 0 ? "left" : "right"}`;
+
+          const preview = document.createElement("div");
+          preview.className = "project-preview";
+          if (project.image) {
+            const image = document.createElement("img");
+            image.src = project.image;
+            image.alt = `Preview of ${project.name}`;
+            preview.appendChild(image);
+          } else {
+            preview.textContent = project.name;
+          }
+
+          const info = document.createElement("div");
+          info.className = "project-info";
+          info.innerHTML = `
+            <h3>${project.name}</h3>
+            <div class="project-tags">
+              ${project.flags.map((flag) => `<span>${flag}</span>`).join("")}
+              ${project.workInProgress ? "<span class=\"wip-tag\">WIP</span>" : ""}
+            </div>
+            <p>${project.shortDescription || (project.workInProgress ? "Work in progress." : "Project details available here.")}</p>
+          `;
+
+          const viewLink = document.createElement("a");
+          viewLink.className = "button-link small";
+          viewLink.href = `project.html?project=${project.slug}`;
+          viewLink.textContent = "details";
+          info.appendChild(viewLink);
+
+          if (project.openSource) {
+            const githubLink = document.createElement("a");
+            githubLink.className = "button-link secondary small";
+            githubLink.href = project.githubUrl;
+            githubLink.target = "_blank";
+            githubLink.rel = "noreferrer";
+            githubLink.textContent = "GitHub";
+            info.appendChild(githubLink);
+          }
+
+          card.appendChild(preview);
+          card.appendChild(info);
+          projectList.appendChild(card);
+        });
+      }
+
+      loadProjects().then(renderProjects).catch((error) => {
+        projectList.innerHTML = `<p class="load-error">${error.message}. Serve this folder with a local web server to load the project list.</p>`;
+      });
+    </script>
+  </body>
+</html>
