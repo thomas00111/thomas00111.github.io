@@ -10,6 +10,5 @@ password manager (python) {manager de mot de passe avec cryptage en python} [sim
 wordleSolver (python) @ {script en python pour résoudre le wordle} [script en python pour résoudre le jeu du wordle]
 spaceRush (godot) {wip - jeu de course spacial 2D sur godot} [wip - jeu de course spacial 2D sur godot]
 chessBot (python) {wip - bot qui marche avec lichess} [wip - bot d'échec qui marche avec lichess avec plusieurs mode aleatoire/minmax]
-memoryGuessr (python) {wip - application web de geo guessr avec des photos de famille} [wip - application web avec le meme concept que geo guessr mais avec des photos de famille fait avec "nicegui"]
-drone ai (python) {wip - IA pour controller un drone avec des taches simples} [wip - IA pour controller un drone avec des taches simples : aller à un objectif, revenir, esquiver des obstacles]
+memoryGuessr (python) {application web de geo guessr avec des photos de famille} [application web avec le meme concept que geo guessr mais avec des photos de famille fait avec "nicegui"]
 ai laser (java) {wip - application android pour faire un laser game grâce à de la reconnaissance d'image} [wip - application android pour faire un laser game grâce à de la reconnaissance d'image]
